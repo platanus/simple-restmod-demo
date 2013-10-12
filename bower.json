@@ -1,0 +1,12 @@
+{
+  "name": "restmoddemo",
+  "version": "1.0.0",
+  "dependencies": {
+    "unstable-angular-complete": "1.2.0rc1",
+    "angular-ui": "0.4",
+    "angular-bootstrap": "0.5",
+    "bootstrap": "2.3",
+    "underscore": "~1.5.1",
+    "angular-restmod":""
+  }
+}

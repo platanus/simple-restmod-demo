@@ -1,0 +1,37 @@
+{
+  "name": "angular-restmod",
+  "version": "0.2.2",
+  "authors": [
+    "Ignacio Baixas <iobaixas@gmai.com>"
+  ],
+  "description": "API Bound Models for AngularJS",
+  "license": "MIT",
+  "homepage": "https://github.com/angular-platanus/angular-restmod",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/angular-platanus/angular-restmod.git"
+  },
+  "main": "./dist/angular-restmod.min.js",
+  "ignore": [
+    "**/.*",
+    "Gruntfile.js",
+    "karma.conf.js",
+    "package.json",
+    "test",
+    "src",
+    ".travis.yml"
+  ],
+  "devDependencies": {
+    "angular": "*",
+    "angular-mocks": "*"
+  },
+  "_release": "0.2.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.2",
+    "commit": "3ff5bb419dfb4588b9467414a4bc7ffee3f47f00"
+  },
+  "_source": "git://github.com/angular-platanus/angular-restmod.git",
+  "_target": "*",
+  "_originalSource": "angular-restmod"
+}
