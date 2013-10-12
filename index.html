@@ -1,53 +1,55 @@
 <html>
-<head>
-  <title>Restmod Test</title>
-  <script src="/bower_components/angular/angular.js"></script>
-  <script src="/bower_components/angular-restmod/dist/angular-restmod.js"></script>
-  <script src="/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-  <link href="/bower_components/bootstrap/docs/assets/css/bootstrap.css" media="all" rel="stylesheet" type="text/css">
-</head>
-<body ng-app="RestmodTest">
-  <div class="container">
-  <div ng-controller="helloCtrl">
-    
-    <h3> Hello, I've got restmod.</br> Type a movie name and press enter: </h3>
+  <head>
+    <title>Restmod Test</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-restmod/dist/angular-restmod.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <link href="bower_components/bootstrap/docs/assets/css/bootstrap.css" media="all" rel="stylesheet" type="text/css">
+  </head>
+  <body ng-app="RestmodTest">
+    <div class="container">
+      <div ng-controller="helloCtrl">
 
-    <form ng-submit="search()">
-      <input type="text" style="padding: 15px 19px;font-size: 17.5px;" class="input-large" ng-model="name" placeholder="Ej: The internship" />
+        <h3> Hello, I've got <a href="http://github.com/angular-platanus/angular-restmod">restmod</a>.
+        </br> Type a movie name and press enter: </h3>
 
-    </form>
-    <div ng-repeat="movie in movies">
-      
-        <div class="row">
-          <div class="span2">
-            <img src="{{movie.poster.cover}}"  alt="" class="img-rounded">
-          </div>
-          <div class="span4">
-            <blockquote>
-              <a href="{{movie.imdb_url}}">{{movie.title}}</a>
-              <small><cite title="Source Title">{{movie.plotSimple}}</cite></small>
-            </blockquote>
-            <p>
-               <i class="icon-map-marker"></i> {{movie.country[0]}} <br>
-              <i class="icon-globe"></i> {{movie.filmingLocations}} <br>
-              <i class="icon-gift"></i> {{movie.year}}
-            </p>
+        <form ng-submit="search()">
+          <input type="text" style="padding: 15px 19px;font-size: 17.5px;" class="input-large" ng-model="name" placeholder="Ej: The internship" />
+
+        </form>
+        <div ng-repeat="movie in movies">        
+          <div class="row">
+            <div class="span2">
+              <img src="{{movie.poster.cover}}"  alt="" class="img-rounded">
+            </div>
+            <div class="span4">
+              <blockquote>
+                <a href="{{movie.imdb_url}}">{{movie.title}}</a>
+                <!-- Take a look! restmod has changed json's 'plot_simple' to a camelcased version -->
+                <small><cite title="Source Title">{{movie.plotSimple}}</cite></small>
+              </blockquote>
+              <p>
+                <i class="icon-map-marker"></i> {{movie.country[0]}} <br>
+                <i class="icon-globe"></i> {{movie.filmingLocations}} <br>
+                <i class="icon-gift"></i> {{movie.year}}
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
-<script type="text/javascript">
-var app = angular.module('RestmodTest',['plRestmod']);
-app.factory('Movie',function($restmod){
-  return $restmod('http://mymovieapi.com');
-});
-
-app.controller('helloCtrl',function($scope, $restmod, Movie) {
-  $scope.search = function() {
-    $scope.movies = Movie.$search({q:$scope.name});
-  };
-});
-</script>
+  </body>
+  <script type="text/javascript">
+  // We define a factory to create the restmod object.
+  var app = angular.module('RestmodTest',['plRestmod']);
+  app.factory('Movie',function($restmod){
+    return $restmod('http://mymovieapi.com');
+  });
+  // We inject the Movie restmod object to the controller.
+  app.controller('helloCtrl',function($scope, $restmod, Movie) {
+    $scope.search = function() {
+      $scope.movies = Movie.$search({q:$scope.name});
+    };
+  });
+  </script>
 </html>
