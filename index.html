@@ -9,9 +9,11 @@
 <body ng-app="RestmodTest">
   <div class="container">
   <div ng-controller="helloCtrl">
-    Hello, I've got restmod. Type a movie name and press enter:
+    
+    <h3> Hello, I've got restmod.</br> Type a movie name and press enter: </h3>
+
     <form ng-submit="search()">
-      <input type="text" class="input-large" ng-model="name" placeholder="Ej: The Notebook" />
+      <input type="text" style="padding: 15px 19px;font-size: 17.5px;" class="input-large" ng-model="name" placeholder="Ej: The internship" />
 
     </form>
     <div ng-repeat="movie in movies">
